@@ -5,5 +5,5 @@ test: test.cpp
 manual_test: manual_test.cpp
 	g++ manual_test.cpp -o manual_test.exe
 clean:
-	rm -f test.exe
+	rm -f test.exe manual_test.exe
 

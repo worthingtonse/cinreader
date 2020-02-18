@@ -27,7 +27,7 @@ int main(){
 	test_bool();
 	test_char();
 	test_double();
-	//test_float(); currently broken due to float rounding
+	test_float();
 	test_integer();
 	test_stream_string();
 	return 0;
@@ -80,7 +80,7 @@ void test_float(){
 		cout << "type 2.22 to end loop" << endl;
 		test_f = reader.readFloat();
 		cout << "float is: " << test_f << endl;
-		if(test_f == 2.22){
+		if(test_f == 2.22f){
 			cout << "ending float loop" << endl;
 			loop = false;
 		}

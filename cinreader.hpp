@@ -122,7 +122,8 @@ enum MessageType {
   DOUBLE_INVALID=4,
   FLOAT_INVALID=5,
   BOOL_INVALID=6,
-  STRING_NOT_ALLOWED=7
+  STRING_NOT_ALLOWED=7,
+  INT_TOO_LARGE=8
 };
 
 class CinReader {
@@ -245,6 +246,11 @@ public:
       try {
         size_t last;
         string intStr = this->readString(false);
+        string tooLarge = "2147483647";
+        if (intStr.compare(tooLarge) >= 0){
+            cout << this->messages[INT_TOO_LARGE];
+            continue;
+        }
         input = stoi(intStr, &last);
         if (input < min || input > max) {
           cout << this->messages[INT_OUT_OF_RANGE];
@@ -327,7 +333,7 @@ public:
   }
 
 private:
-  array<string, 8> messages;
+  array<string, 9> messages;
 
   void defaultMessages() {
     this->messages[INT_INVALID] = "Input is not a valid integer. Re-enter: ";
@@ -338,6 +344,7 @@ private:
     this->messages[CHAR_NOT_ALLOWED] = "Input character is not allowed. Re-enter: ";
     this->messages[BOOL_INVALID] = "Input is not valid for boolean. Re-enter: ";
     this->messages[STRING_NOT_ALLOWED] = "Input is not allowed. Re-enter: ";
+    this->messages[INT_TOO_LARGE] = "Input is too large, Re-enter: ";
   }
 };
 

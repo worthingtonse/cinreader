@@ -246,8 +246,7 @@ public:
       try {
         size_t last;
         string intStr = this->readString(false);
-        string tooLarge = "2147483647";
-        if (intStr.compare(tooLarge) >= 0){
+        if (intStr.size() > 9){
             cout << this->messages[INT_TOO_LARGE];
             continue;
         }

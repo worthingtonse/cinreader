@@ -1,4 +1,4 @@
-ARGS = -std=c++11 -Wall -Wextra -Werror -pedantic-errors
+ARGS = -std=c++11 -pedantic -Wall -Wextra -Werror -Wshadow -Wconversion -Wunreachable-code
 
 test: test.cpp
 	g++ test.cpp -o test.exe

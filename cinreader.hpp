@@ -1,7 +1,7 @@
 /*
- * CinReader, v2.02
+ * CinReader, v2.02.01
  *
- * Copyright 2019 J Boyd Trolinger
+ * Copyright 2021 J Boyd Trolinger
  * 
  * Contributors: Samuel Fuller, Andrew Mattly
  *
@@ -137,7 +137,7 @@ public:
 
     bool validInput(false);
     while (!validInput) {
-      char boolChar = toupper(this->readString(false).at(0));
+      char boolChar = static_cast<int>(toupper(this->readString(false).at(0)));
       if (boolChar == 'T') {
         input = true;
         validInput = true;
